@@ -27,19 +27,19 @@ export class CustomerListComponent implements OnInit {
   'fiat_currency_id',
   'fiat_currency_code',
   'in_app_notifications',
-  'app_screenshots?',
+  'app_screenshots',
   'kyc_level_number',
   'kyc_level_name',
   'loyalty_level',
-  'country_id',
-  'country_code',
-  'country_name_en',
-  'country_name_fr',
-  'friends_referred',
-  'referral_rewards_count',
-  'amount_transacted',
-  'balance_in_default_fiat',
-  'balance_in_customer_fiat'
+  //'country_id',
+  //'country_code',
+  //'country_name_en',
+  //'country_name_fr',
+  //'friends_referred',
+  //'referral_rewards_count',
+  //'amount_transacted',
+ // 'balance_in_default_fiat',
+  //'balance_in_customer_fiat'
   ]
   @ViewChild(MatPaginator, {static: true})
   paginator: MatPaginator;

@@ -159,32 +159,127 @@
                 </ng-container>
 
                 <!-- Price Column -->
-                <ng-container matColumnDef="price">
+                <ng-container matColumnDef="date_of_birth">
                     <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-xs>Price</mat-header-cell>
-                    <mat-cell *matCellDef="let product" fxHide fxShow.gt-xs>
+                    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-xs>
                         <p class="price text-truncate">
-                            {{product.priceTaxIncl | currency:'USD':'symbol'}}
+                            {{customer.date_of_birth | date}}
                         </p>
                     </mat-cell>
                 </ng-container>
               
 
                 <!-- Quantity Column -->
-                <ng-container matColumnDef="quantity">
+                <ng-container matColumnDef="preferred_language">
                     <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
-                    <mat-cell *matCellDef="let product" fxHide fxShow.gt-sm>
+                    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
 
                         <span class="quantity-indicator text-truncate"
                               [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
                         </span>
                         <span>
-                            {{product.quantity}}
+                            {{customer.preferred_language}}
                         </span>
 
                     </mat-cell>
                 </ng-container>
 
+                <ng-container matColumnDef="fiat_currency_id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+                    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+                        <span class="quantity-indicator text-truncate"
+                              [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+                        </span>
+                        <span>
+                            {{customer.fiat_currency_id}}
+                        </span>
+
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="fiat_currency_code">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+                    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+                        <span class="quantity-indicator text-truncate"
+                              [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+                        </span>
+                        <span>
+                            {{customer.fiat_currency_code}}
+                        </span>
+
+                    </mat-cell>
                 
+            </ng-container>
+            <ng-container matColumnDef="in_app_notifications">
+                <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+                <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+                    <span class="quantity-indicator text-truncate"
+                          [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+                    </span>
+                    <span>
+                        {{customer. in_app_notifications}}
+                    </span>
+
+                </mat-cell>
+            
+        </ng-container>
+        <ng-container matColumnDef="app_screenshots">
+            <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+            <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+                <span class="quantity-indicator text-truncate"
+                      [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+                </span>
+                <span>
+                    {{customer.app_screenshots}}
+                </span>
+
+            </mat-cell>
+        
+    </ng-container>
+    <ng-container matColumnDef="kyc_level_number">
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+        <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+            <span class="quantity-indicator text-truncate"
+                  [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+            </span>
+            <span>
+                {{customer.kyc_level_number}}
+            </span>
+
+        </mat-cell>
+    
+</ng-container>
+<ng-container matColumnDef="kyc_level_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+        <span class="quantity-indicator text-truncate"
+              [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+        </span>
+        <span>
+            {{customer.kyc_level_name}}
+        </span>
+
+    </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="loyalty_level">
+    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-sm>
+
+        <span class="quantity-indicator text-truncate"
+              [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+        </span>
+        <span>
+            {{customer.loyalty_level}}
+        </span>
+
+    </mat-cell>
+</ng-container>
                
             </mat-table>
            <!--
