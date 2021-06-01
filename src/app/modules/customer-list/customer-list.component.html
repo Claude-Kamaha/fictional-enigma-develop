@@ -1,0 +1,204 @@
+<!-- <div class="mat-elevation-z8">
+<mat-table mat-table [dataSource]="listCustomer" >
+    <ng-container matColumnDef="Username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Username </mat-header-cell>
+        <td mat-cell *matCellDef="let element"> {{element.Username}} </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table> 
+</div>
+!-->
+
+<!-- 2nd method
+<table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>email_address</th>
+        <th> date_of_birth</th>
+        <th> preferred_language</th>
+        <th>fiat_currency_id</th>
+        <th>fiat_currency_code</th>
+        <th>in_app_notification</th>
+        <th> app_screenshots</th>
+        <th>  kyc_level_number</th>
+        <th> kyc_level_name</th>
+        <th>loyalty_level</th>
+        <th> country_id</th>
+        <th> country_code</th>
+        <th> country_name_en</th>
+        <th> country_name_fr</th>
+        <th>friends_referred</th>
+        <th> referral_rewards_count</th>
+        <th>amount_transacted</th>
+        <th>  balance_in_default_fiat</th>
+        <th>balance_in_customer_fiats</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let custormer of customerListService.customerlist'> 
+        
+        <td>customer.username</td>
+        <td>customer.first_name</td>
+        <td>customer.last_name</td>
+        <td>customer.email_address</td>
+        <td>customer.date_of_birth</td>
+        <td>customer.preferred_language</td>
+        <td>customer.fiat_currency_id</td>
+        <td>customer.fiat_currency_code</td>
+        <td>customer.in_app_notification</td>
+        <td>customer.app_screenshots</td>
+        <td>customer.kyc_level_number</td>
+        <td>customer.loyalty_level</td>
+        <td>customer.country_id</td>
+        <td>customer.country_code</td>
+        <td>customer.country_name_en</td>
+        <td>customer. country_name_fr</td>
+        <td>customerfriends_referred</td>
+        <td>customer.referral_rewards_count</td>
+        <td>customer.amount_transacted</td>
+        <td>customer.balance_in_default_fiat</td>
+        <td>customer.balance_in_customer_fiats</td>
+
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+!-->
+<div id="customerlist" class="page-layout carded fullwidth inner-scroll">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+<div class="center">
+
+        <!-- HEADER -->
+        <div class="header accent"
+             fxLayout="column" fxLayoutAlign="center center"
+             fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
+            
+           
+
+            <!-- SEARCH -->
+            <div class="search-wrapper mx-32 mx-md-0">
+                <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon>search</mat-icon>
+                    <input #filter placeholder="Search for a customer">
+                </div>
+            </div>
+            <!-- / SEARCH -->
+
+            <!-- ADD BUTTON -->
+            
+            <!-- / ADD BUTTON -->
+
+        </div>
+        <!-- / HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <mat-table class="customers-table"
+                       #table [dataSource]="dataSource"
+                       matSort
+                       [@animateStagger]="{value:'50'}"
+                       fusePerfectScrollbar>
+
+                <!-- username Column -->
+                <ng-container matColumnDef="username">
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
+                    <mat-cell *matCellDef="let customer">
+                        <p class="text-truncate">{{customer.username}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- First name Column -->
+                <ng-container matColumnDef="first_name">
+                    <mat-header-cell *matHeaderCellDef> Firstname</mat-header-cell>
+                    <mat-cell *matCellDef="let customer">
+                        <p class="text-truncate">{{customer.first_name}}</p>
+                        
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Last Name Column -->
+                <ng-container matColumnDef="last_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+                    <mat-cell *matCellDef="let customer">
+                        <p class="text-truncate">{{customer.last_name}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Category Column -->
+                <ng-container matColumnDef="email_address">
+                    <mat-header-cell *matHeaderCellDef fxHide mat-sort-header fxShow.gt-md>Category</mat-header-cell>
+                    <mat-cell *matCellDef="let customer" fxHide fxShow.gt-md>
+                        <p class="category text-truncate">
+                            {{customer.email_address}}
+                        </p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Price Column -->
+                <ng-container matColumnDef="price">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-xs>Price</mat-header-cell>
+                    <mat-cell *matCellDef="let product" fxHide fxShow.gt-xs>
+                        <p class="price text-truncate">
+                            {{product.priceTaxIncl | currency:'USD':'symbol'}}
+                        </p>
+                    </mat-cell>
+                </ng-container>
+              
+
+                <!-- Quantity Column -->
+                <ng-container matColumnDef="quantity">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Quantity</mat-header-cell>
+                    <mat-cell *matCellDef="let product" fxHide fxShow.gt-sm>
+
+                        <span class="quantity-indicator text-truncate"
+                              [ngClass]="{'red-500':product.quantity <= 5, 'amber-500':product.quantity > 5 && product.quantity <= 25,'green-600':product.quantity > 25}">
+                        </span>
+                        <span>
+                            {{product.quantity}}
+                        </span>
+
+                    </mat-cell>
+                </ng-container>
+
+                
+               
+            </mat-table>
+           <!--
+            <mat-paginator #paginator
+                           [length]="dataSource.filteredData.length"
+                           [pageIndex]="0"
+                           [pageSize]="10"
+                           [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+           -->
+        </div>
+        
+        <!-- / CONTENT CARD -->
+    </div>
+    <!-- / CENTER -->
+
+</div>

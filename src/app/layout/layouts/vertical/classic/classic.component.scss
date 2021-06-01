@@ -1,0 +1,19 @@
+.logo {
+    border-radius: 100%;
+    overflow: hidden;
+
+    img {
+        border-radius: 100%;
+        display: block;
+        width: 30px;
+    }
+}
+
+.app-logo {
+    padding-left: 10px;
+}
+.app-name {
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+    color: #bcbdbf;
+}
